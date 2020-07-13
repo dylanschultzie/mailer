@@ -25,9 +25,14 @@ app.get('/', (req, res) => {
   res.send({ hi: 'there' });
 });
 
-app.get('/auth/:service', (req, res) => {
-  res.send('Auth time! ' + req.params.service);
-});
+app.get(
+  '/auth/google',
+  passport.authenticate('google', {
+    scope: ['profile', 'email'],
+  })
+);
+
+app.get('/auth/google/callback', passport.authenticate('google'));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
