@@ -5,6 +5,7 @@ const app = express();
 
 require('./services/passport');
 require('./routes/authRoutes')(app);
+require('./models/User');
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
