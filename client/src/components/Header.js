@@ -17,8 +17,11 @@ export const Header = () => {
         );
       default:
         return [
-          <li key="1">
+          <li key="0">
             <Payments />
+          </li>,
+          <li key="1" style={{ margin: '0 1em' }}>
+            Credits: {auth.credits}
           </li>,
           <li key="2">
             <a href="/api/logout">Logout</a>
